@@ -1,0 +1,71 @@
+#title h1{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 0%;
+    margin-bottom: 1%;
+}
+#title h2{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 0%;
+}
+#topmenu{
+    text-align: right;
+    margin: 0%;
+    margin-right: 5%;
+}
+.button{
+    border: none;
+    font-size: 5px;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    padding: 7px 7px;
+    margin: 10px;
+    cursor: pointer;
+}
+nav {
+    width: 100%;
+    height: 23px;
+    margin-right: 10%;
+    background-color: black;
+    color: white;
+}
+nav a {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    margin: 5%;
+}
+footer {
+    width: 100%;
+    position: fixed;
+    left: 0;top: 93%;bottom: 0;
+    height: 50px;
+    clear: both;
+    text-align: center;
+}
+#board_area{
+    margin: 5%;
+    margin-bottom: 1%;
+    text-align:center;
+    
+}
+.list-table{
+    text-align: center;
+    background-color: white;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+.list-table thead th{
+    border-top: 3px solid skyblue;
+    border-bottom: 1px solid lightslategray;
+    height: 35px;
+}
+.list-table tbody td{
+    border-bottom: 1px solid lightslategray;
+    height: 30px;
+}
+#page{
+    text-align: center;
+}

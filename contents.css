@@ -1,0 +1,33 @@
+#grid{
+    text-align: center;
+    font: bold;
+    font-size:x-large;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#grid a:hover{
+    border-bottom: 2px solid black;
+}
+#text-deco{
+    text-decoration: none;
+    color:black;
+}
+#sub_title{
+    text-align: center;
+    color: black;
+    font-size: xx-large;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+#space{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.contents{
+    margin-top: 5%;
+    text-align: center;
+    font-size: x-large;
+    color:black;
+}
