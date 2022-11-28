@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>D.I.F</title>
+        <link rel="stylesheet" type="text/css" href="main.css"/>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <!-- JQuery cdn -->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/"><strong>D.I.F</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Board">Board</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Contents
+                  </a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/Skills">Skills</a>
+                    <a class="dropdown-item" href="/Career">Career</a>
+                    <a class="dropdown-item" href="/Project">Project</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/rebri99">Github</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled">My Page</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0" id="signOut">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="signOut()">Sign out</button>
+              </form>
+            </div>
+        </nav>
+
+        <h2 style="text-align:center; padding:1%; font-size: xx-large;">게시판</h2>
+        <div clss="table_wrap">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">번호</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">글쓴이</th>
+                        <th scope="col">작성일</th>
+                        <th scope="col">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="1" class="listRow">
+                        <th scope="row">idx</th>
+                        <td>미완성입니다</td>
+                        <td>name</td>
+                        <td>date</td>
+                        <td>hit</td>
+                    </tr>
+                    <tr id="2" class="listRow">
+                        <th scope="row">idx</th>
+                        <td>title</td>
+                        <td>name</td>
+                        <td>date</td>
+                        <td>hit</td>
+                    </tr>
+                    <tr id="3" class="listRow">
+                        <th scope="row">idx</th>
+                        <td>title</td>
+                        <td>name</td>
+                        <td>date</td>
+                        <td>hit</td>
+                    </tr>
+                    <tr id="4" class="listRow">
+                        <th scope="row">idx</th>
+                        <td>title</td>
+                        <td>name</td>
+                        <td>date</td>
+                        <td>hit</td>
+                    </tr>
+                    <tr id="5" class="listRow">
+                        <th scope="row">idx</th>
+                        <td>title</td>
+                        <td>name</td>
+                        <td>date</td>
+                        <td>hit</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="page">
+            <span>[처음]</span>
+            <span>[이전]</span>
+            <span>[1]</span>
+            <span>[2]</span>
+            <span>[3]</span>
+            <span>[4]</span>
+            <span>[5]</span>
+            <span>[다음]</span>
+            <span>[마지막]</span>
+        </div>
+        <div style="margin-left: 90%;">
+            <a class="btn btn-secondary" href="/Board" role="button">List</a>
+            <a class="btn btn-primary" href="#" role="button">Write</a>
+        </div>
+
+        <footer class="my-3 text-center text-small">
+            <p class="mb-1">Copyright &copy; 2022 Kim_HyeonSu</p>
+        </footer>
+            
+        <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <div class="modal" tabindex="-1" id="listModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalContent">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+          function signOut() {
+		        $.ajax({
+			        type: "get",
+			        url: 'http://localhost:8080/logOut',
+			        data: {},
+			        dataType:'text',
+			        success: function(res) {
+				        location.reload();
+			        }
+		        });
+	        }
+            function clickPost(postid){
+                let url = "https://jsonplaceholder.typicode.com/posts/" + postid;
+                $.get(url).then(function(data){
+                    $("#modalTitle").text(data.title);
+                    $("#modalContent").text(data.body);
+                    $("#listModal").modal("show");
+                });
+            }
+
+            $(document).ready(function(){
+                $('.listRow').click(function(){
+                    let id = $(this).attr("id");
+                    clickPost(id);
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+.table_wrap{
+    width: 500px;
+}
+table{
+    width: 50%;
+    border-collapse: collapse;
+}
+tr{
+    border-bottom: 1px solid #aaa;
+    text-align: center;
+}
+td, th{
+    padding: 5px;
+}
+#page{
+    text-align: center;
+}
+#space{
+    margin-left: 10%;
+    margin-right: 10%;
+}
