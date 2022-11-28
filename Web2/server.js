@@ -1,23 +1,3 @@
-/*
-const express = require('express');
-const connectDB = require("./config/db");
-const app = express();
-app.use(express.static('public'));
-
-const port = 8080
-const bodyparser = require('body-parser');
-
-app.use(bodyparser.urlencoded({extends: true})); 
-
-app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'))
-
-app.get('/Board.html', (req, res) => res.sendFile(__dirname + '/Board.html'))
-
-connectDB();
-
-app.listen(port, () => console.log('listening on port ' + port))
-*/
-
 const express = require('express');
 const app = express();
 app.use(express.static(__dirname + ''));
