@@ -7,6 +7,10 @@
         <link rel="stylesheet" type="text/css" href="main.css"/>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <!-- Load TensorFlow.js. This is required to use coco-ssd model. -->
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
+        <!-- Load the coco-ssd model. -->
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"> </script>
         <style></style>
     </head>
     <body>
@@ -51,17 +55,93 @@
             <h1 class="display-4">Welcome to D.I.F</h1>
             <p class="lead">This site is made for a portpolio.</p>
             <hr class="my-4">
-            <p>You need to log in to use the Board menu.(disabled)</p>
+            <p>You need to sign in to use the Board menu.(disabled)</p>
             <a class="btn btn-primary btn-lg" href="/login" role="button">Sign in</a>
+            <hr class="my-4">
+            <h2>Object Detection Model</h2>
+            <img id="img" src="cat.jpg">
+            <hr class="my-4">
+            <h2>My Trip Plan</h2>
+            <div id="googleMap" style="width:100%;height:500px;"></div>
         </div>
 
         <footer class="my-3 text-center text-small">
           <p class="mb-1">Copyright &copy; 2022 Kim_HyeonSu</p>
         </footer>
-            
+        
+        <script>
+          const img = document.getElementById('img');
+
+          cocoSsd.load().then(model => {
+            model.detect(img).then(predictions => {
+              console.log('Predictions: ', predictions);
+            });
+          });
+
+          function myMap() {
+          var mapProp= {
+            center:new google.maps.LatLng(35.77233461431732, 140.39290844187016),
+            tokyo1:new google.maps.LatLng(35.686917087296905, 139.69331138726704),
+            tokyo2:new google.maps.LatLng(35.700799384473, 139.77067066558118),
+            tokyo3:new google.maps.LatLng(35.658584867511955, 139.74543623925442),
+            zoom:10,
+          };
+          var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+          var marker1 = new google.maps.Marker({position:mapProp.center, title:"나리타 국제공항", map:map});
+          var marker2 = new google.maps.Marker({position:mapProp.tokyo1, title:"신주쿠 워싱턴 호텔", map:map});
+          var marker3 = new google.maps.Marker({position:mapProp.tokyo2, title:"큐슈 장가라 라멘 아키하바라점", map:map});
+          var marker4 = new google.maps.Marker({position:mapProp.tokyo3, title:"도쿄 타워", map:map});
+
+          var infowindow1 = new google.maps.InfoWindow({
+            content:"나리타 국제공항"
+          });
+          var infowindow2 = new google.maps.InfoWindow({
+            content:"신주쿠 워싱턴 호텔"
+          });
+          var infowindow3 = new google.maps.InfoWindow({
+            content:"큐슈 장가라 라멘 아키하바라점"
+          });
+          var infowindow4 = new google.maps.InfoWindow({
+            content:"도쿄 타워"
+          });
+
+          google.maps.event.addListener(marker1, 'click', function() {
+            map.setZoom(15);
+            map.setCenter(marker1.getPosition());
+            infowindow1.open(map,marker1);
+          });
+          google.maps.event.addListener(marker2, 'click', function() {
+            map.setZoom(15);
+            map.setCenter(marker2.getPosition());
+            infowindow2.open(map,marker2);
+          });
+          google.maps.event.addListener(marker3, 'click', function() {
+            map.setZoom(17);
+            map.setCenter(marker3.getPosition());
+            infowindow3.open(map,marker3);
+          });
+          google.maps.event.addListener(marker4, 'click', function() {
+            map.setZoom(17);
+            map.setCenter(marker4.getPosition());
+            infowindow4.open(map,marker4);
+          });
+          
+          var myTrip = [ mapProp.center, mapProp.tokyo1, mapProp.tokyo2, mapProp.tokyo3 ];
+          var TripPath = new google.maps.Polyline({
+            path:myTrip,
+            strokeColor:"#FF0000",
+            strokeOpacity:0.8,
+            strokeWeight:2
+          });
+          TripPath.setMap(map);
+          }
+          </script>
+
         <!-- jQuery and Bootstrap Bundle (includes Popper) -->
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-            
+        <!-- Google API Key -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4C3xJ7M2LKQPtNkPfgBJ8iz3qI_3enhQ&callback=myMap"></script>
     </body>
 </html>

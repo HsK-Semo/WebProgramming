@@ -23,6 +23,10 @@ app.get('/logOut', function(req, res){
   return res.clearCookie('user').end();
 });
 
+app.get('/map', function(req, res){
+  res.sendFile(__dirname + '/index.php');
+});
+
 app.get('/', auth, function(req, res) {
   const user = req.decoded;
   if(user){
